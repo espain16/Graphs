@@ -40,23 +40,36 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        q = Queue()                                         # Create a queue 
-        # Enqueue the starting vertex
-        # Create a set to store visited vertices
-        # While the queue is not empty
-            # Dequeue the first vertex
+        q = Queue()                                                                                 # Create a queue 
+        q.enqueue(starting_vertex)                                                                  # Enqueue the starting vertex
+        visited = set()                                                                             # Create a set to store visited vertices
+        while q.size() > 0:                                                                         # While the queue is not empty
+            v = q.dequeue()                                                                         # Dequeue the first vertex
             # Check if its been visited
-            # If it hasn't been visited 
-                # Mark it as visited 
-                # Enqueue all its neighbors 
-        pass  # TODO
+            # If it hasn't been visited
+            if v not in visited: 
+                print(v)                                                                            # Mark it as visited 
+                visited.add(v)
+                for neighbor in self.get_neighbors(v):                                              # Enqueue all its neighbors 
+                    q.enqueue(neighbor)
+       
 
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        s = Stack()                                                                                # Create a stack
+        s.push(starting_vertex)                                                                    # Push the starting vertex 
+        visited = set()
+        while s.size() > 0:
+            v = s.pop()
+            if v not in visited:
+                print(v)
+                visited.add(v)
+                for neighbor in self.get_neighbors(v):
+                    s.push(neighbor)
+
 
     def dft_recursive(self, starting_vertex):
         """
