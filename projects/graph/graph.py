@@ -13,25 +13,42 @@ class Graph:
         """
         Add a vertex to the graph.
         """
-        pass  # TODO
+        self.vertices[vertex_id] = set()
 
     def add_edge(self, v1, v2):
         """
         Add a directed edge to the graph.
         """
-        pass  # TODO
+        if v1 in self.vertices[v1] and v2 in self.vertices:                                         # adding vertices 1 & 2 to create a directed edge 
+            self.vertices[v1].add(v2)
+        else:
+            raise ValueError("vertex does not exist")
+        
 
     def get_neighbors(self, vertex_id):
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        if vertex_id in self.vertices:                                                             # checking if the specific vertices is present
+            return self.vertices[vertex_id]
+        else:
+            raise ValueError("vertex does not exist")
+
 
     def bft(self, starting_vertex):
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
+        q = Queue()                                         # Create a queue 
+        # Enqueue the starting vertex
+        # Create a set to store visited vertices
+        # While the queue is not empty
+            # Dequeue the first vertex
+            # Check if its been visited
+            # If it hasn't been visited 
+                # Mark it as visited 
+                # Enqueue all its neighbors 
         pass  # TODO
 
     def dft(self, starting_vertex):
